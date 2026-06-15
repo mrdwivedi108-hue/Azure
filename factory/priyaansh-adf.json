@@ -1,0 +1,15 @@
+{
+	"name": "priyaansh-adf",
+	"properties": {
+		"trustModeClaimForMi": {
+			"value": "Disabled",
+			"editable": true
+		}
+	},
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "2047ba8a-97ac-45b4-923f-8354f6a00fd3",
+		"tenantId": "e2de5ead-6f7b-428a-bf86-afc1c84e8e48"
+	}
+}
