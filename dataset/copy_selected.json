@@ -1,0 +1,32 @@
+{
+	"name": "copy_selected",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "linkedserviceadls2",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"p_input_source": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": {
+					"value": "@dataset().p_input_source",
+					"type": "Expression"
+				},
+				"folderPath": "csvfile",
+				"fileSystem": "source"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}

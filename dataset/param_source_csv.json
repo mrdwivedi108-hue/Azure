@@ -1,0 +1,32 @@
+{
+	"name": "param_source_csv",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "linkedserviceadls2",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"p_input_file": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": {
+					"value": "@dataset().p_input_file",
+					"type": "Expression"
+				},
+				"folderPath": "csvfile",
+				"fileSystem": "source"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}
