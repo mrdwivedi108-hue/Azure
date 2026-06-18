@@ -934,6 +934,37 @@
 				"[concat(variables('factoryId'), '/datasets/DataFlowSource')]",
 				"[concat(variables('factoryId'), '/datasets/data_flow_sink')]"
 			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/selectedfilestrigger')]",
+			"type": "Microsoft.DataFactory/factories/triggers",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"runtimeState": "Started",
+				"pipelines": [
+					{
+						"pipelineReference": {
+							"referenceName": "metadatademo",
+							"type": "PipelineReference"
+						},
+						"parameters": {}
+					}
+				],
+				"type": "ScheduleTrigger",
+				"typeProperties": {
+					"recurrence": {
+						"frequency": "Minute",
+						"interval": 15,
+						"startTime": "2026-06-18T15:00:00",
+						"endTime": "2026-06-19T15:15:00",
+						"timeZone": "India Standard Time"
+					}
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/pipelines/metadatademo')]"
+			]
 		}
 	]
 }
